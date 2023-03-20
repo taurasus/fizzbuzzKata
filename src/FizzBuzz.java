@@ -1,5 +1,9 @@
 public class FizzBuzz {
-    public int decode(int nombre) {
-        return nombre;
+    public String decode(int nombre) {
+        if (nombre == 3) {
+            return "fizz";
+        }
+        
+        return String.valueOf(nombre);
     }
 }
