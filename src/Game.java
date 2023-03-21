@@ -7,9 +7,20 @@ public class Game {
                 return "deuce";
             }
             else{
+                if (scoreJ1-scoreJ2 == 2)
+                {
+                    return "Joueur 1 gagnant";
+                }
+                else if (scoreJ2-scoreJ1 == 2)
+                {
+                    return "Joueur 2 gagnant";
+                }
+
                 if(scoreJ1 > scoreJ2){
+                   
                     return "advantage-" + traduction(scoreJ2);
                 }
+               
                 return traduction(scoreJ1) + "-advantage";
             }
         }

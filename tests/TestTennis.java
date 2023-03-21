@@ -94,4 +94,12 @@ public class TestTennis {
         // Then
         assertEquals("40-advantage", score);
     }
+
+    @Test
+    public void test_5_3_doit_retourner_joueur1_gagnant() {
+           // When
+           String score = game.getScore(5, 3);
+           // Then
+           assertEquals("Joueur 1 gagnant", score);
+    }
 }
