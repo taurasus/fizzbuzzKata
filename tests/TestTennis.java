@@ -26,7 +26,7 @@ public class TestTennis {
         // Given
         Game game = new Game();
         // When
-        String score = game.getScore(0);
+        String score = game.getScore(0, 0);
         // Then
         assertEquals("love-love", score);
     }
@@ -36,8 +36,28 @@ public class TestTennis {
         //Given
         Game game = new Game();
         //When
-        String score = game.getScore(15);
+        String score = game.getScore(15, 0);
         //Then
         assertEquals("15-love", score);
+    }
+
+    @Test
+    public void test_score_joueurs_ont_marque_un_point_doit_retourner_15_15() {
+        // Given
+        Game game = new Game();
+        // When
+        String score = game.getScore(15, 15);
+        // Then
+        assertEquals("15-15", score);
+    }
+
+    @Test
+    public void test_score_joueur2_marque_un_point_doit_retourner_love_15() {
+        // Given
+        Game game = new Game();
+        // When
+        String score = game.getScore(0, 15);
+        // Then
+        assertEquals("love-15", score);
     }
 }
