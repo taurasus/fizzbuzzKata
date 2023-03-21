@@ -36,7 +36,7 @@ public class TestTennis {
         //Given
         Game game = new Game();
         //When
-        String score = game.getScore(15, 0);
+        String score = game.getScore(1, 0);
         //Then
         assertEquals("15-love", score);
     }
@@ -46,7 +46,7 @@ public class TestTennis {
         // Given
         Game game = new Game();
         // When
-        String score = game.getScore(15, 15);
+        String score = game.getScore(1, 1);
         // Then
         assertEquals("15-15", score);
     }
@@ -56,7 +56,7 @@ public class TestTennis {
         // Given
         Game game = new Game();
         // When
-        String score = game.getScore(0, 15);
+        String score = game.getScore(0, 1);
         // Then
         assertEquals("love-15", score);
     }
@@ -65,7 +65,7 @@ public class TestTennis {
     public void test_score_joueur1_marque_deux_points_doit_retourner_30_love() {
         Game game = new Game();
         
-        String score = game.getScore(30, 0);
+        String score = game.getScore(2, 0);
         
         assertEquals("30-love", score);
     }
@@ -74,7 +74,7 @@ public class TestTennis {
     public void test_score_40_40_doit_retourner_deuce() {
         Game game = new Game();
 
-        String score = game.getScore(40, 40);
+        String score = game.getScore(3, 3);
 
         assertEquals("deuce", score);
     }
