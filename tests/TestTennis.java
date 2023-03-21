@@ -60,4 +60,22 @@ public class TestTennis {
         // Then
         assertEquals("love-15", score);
     }
+    
+    @Test
+    public void test_score_joueur1_marque_deux_points_doit_retourner_30_love() {
+        Game game = new Game();
+        
+        String score = game.getScore(30, 0);
+        
+        assertEquals("30-love", score);
+    }
+
+    @Test
+    public void test_score_40_40_doit_retourner_deuce() {
+        Game game = new Game();
+
+        String score = game.getScore(40, 40);
+
+        assertEquals("deuce", score);
+    }
 }
