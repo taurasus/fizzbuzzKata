@@ -8,7 +8,7 @@ public class TestTennis {
     
     Nos tests :
     
-    - Renvoyer le score initialement (love - love)
+    
     - Renvoyer le score d'un joueur
     - Renvoyer quand le jeu est gagnée (won - player name)
     - Savoir s'il y a un gagnant
@@ -20,13 +20,24 @@ public class TestTennis {
      */
     
     
+    //  - Renvoyer le score initialement (love - love)
     @Test
     public void test_score_initial_doit_retourner_love_love() {
         // Given
         Game game = new Game();
         // When
-        String score = game.getScore();
+        String score = game.getScore(0);
         // Then
         assertEquals("love-love", score);
+    }
+
+    @Test
+    public void test_score_joueur_1_marque_un_point_doit_retourner_15_love() {
+        //Given
+        Game game = new Game();
+        //When
+        String score = game.getScore(15);
+        //Then
+        assertEquals("15-love", score);
     }
 }
