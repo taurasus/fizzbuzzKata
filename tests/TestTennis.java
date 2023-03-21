@@ -2,6 +2,8 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Before;
+
 public class TestTennis {
     
     /*
@@ -21,10 +23,16 @@ public class TestTennis {
     
     
     //  - Renvoyer le score initialement (love - love)
+    private Game game;
+
+    @Before
+    public void set_up(){
+        game = new Game();
+    }
+
+
     @Test
-    public void test_score_initial_doit_retourner_love_love() {
-        // Given
-        Game game = new Game();
+    public void test_score_0_0_doit_retourner_love_love() {
         // When
         String score = game.getScore(0, 0);
         // Then
@@ -32,9 +40,7 @@ public class TestTennis {
     }
 
     @Test
-    public void test_score_joueur_1_marque_un_point_doit_retourner_15_love() {
-        //Given
-        Game game = new Game();
+    public void test_score_1_0_doit_retourner_15_love() {
         //When
         String score = game.getScore(1, 0);
         //Then
@@ -42,9 +48,7 @@ public class TestTennis {
     }
 
     @Test
-    public void test_score_joueurs_ont_marque_un_point_doit_retourner_15_15() {
-        // Given
-        Game game = new Game();
+    public void test_score_1_1_doit_retourner_15_15() {
         // When
         String score = game.getScore(1, 1);
         // Then
@@ -52,9 +56,7 @@ public class TestTennis {
     }
 
     @Test
-    public void test_score_joueur2_marque_un_point_doit_retourner_love_15() {
-        // Given
-        Game game = new Game();
+    public void test_score_0_1_doit_retourner_love_15() {
         // When
         String score = game.getScore(0, 1);
         // Then
@@ -62,8 +64,7 @@ public class TestTennis {
     }
     
     @Test
-    public void test_score_joueur1_marque_deux_points_doit_retourner_30_love() {
-        Game game = new Game();
+    public void test_score_2_0_doit_retourner_30_love() {
         
         String score = game.getScore(2, 0);
         
@@ -71,11 +72,26 @@ public class TestTennis {
     }
 
     @Test
-    public void test_score_40_40_doit_retourner_deuce() {
-        Game game = new Game();
+    public void test_score_3_3_doit_retourner_deuce() {
 
         String score = game.getScore(3, 3);
 
         assertEquals("deuce", score);
+    }
+
+    @Test
+    public void test_score_4_4_doit_retourner_deuce(){
+        //When
+        String score = game.getScore(4, 4);
+        //Then
+        assertEquals("deuce", score);
+    }
+
+    @Test
+    public void test_score_3_4_doit_retourner_40_advantage(){
+        // When
+        String score = game.getScore(3, 4);
+        // Then
+        assertEquals("40-advantage", score);
     }
 }
